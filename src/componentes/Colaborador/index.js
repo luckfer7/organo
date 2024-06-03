@@ -1,10 +1,11 @@
 import './Colaborador.css'
 
-const Colaborador = ({nome, imagem, cargo, corDeFundo}) => {
+const Colaborador = ({nome, imagem, cargo, corDeFundo, aoDeletar}) => {
     return (
         //um bloco com imagem e cor de fundo e outro bloco com as informações, dentro de um bloco principal.
-
+        
         <div className='colaborador'>
+            <div className="deletar" onClick={aoDeletar}>deletar</div>
             <div className='cabecalho' style={{backgroundColor: corDeFundo}}>
                 <img src={imagem} alt={nome}/>
             </div>
