@@ -1,3 +1,4 @@
+import { AiFillCloseCircle } from "react-icons/ai";
 import './Colaborador.css'
 
 const Colaborador = ({nome, imagem, cargo, corDeFundo, aoDeletar}) => {
@@ -5,7 +6,7 @@ const Colaborador = ({nome, imagem, cargo, corDeFundo, aoDeletar}) => {
         //um bloco com imagem e cor de fundo e outro bloco com as informações, dentro de um bloco principal.
         
         <div className='colaborador'>
-            <div className="deletar" onClick={aoDeletar}>deletar</div>
+            <AiFillCloseCircle size={25} className="deletar" onClick={aoDeletar}/>
             <div className='cabecalho' style={{backgroundColor: corDeFundo}}>
                 <img src={imagem} alt={nome}/>
             </div>
