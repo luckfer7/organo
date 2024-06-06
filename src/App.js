@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from './componentes/Banner/Banner';
 import Formulario from './componentes/Formulario';
 import Time from './Time';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
 
@@ -9,35 +10,42 @@ function App() {
     //a diferença aqui é que aqui cada time receberá uma cor diferente.
 
     {
+      id: uuidv4(),
       nome: 'Programação',
       cor: '#57c278',
   
     },
     {
+      id: uuidv4(),
       nome: 'Front-End',
       cor: '#82cffa',
      
     },
     {
+      id: uuidv4(),    
       nome: 'Data Science',
       cor: '#a6d157',
       
     },
     {
+      id: uuidv4(),
       nome: 'Devops',
       cor: '#e06b69',
       
     },
     {
+      id: uuidv4(),
       nome: 'UX e Design',
       cor: '#db6ebf',
       
     },
     {
+      id: uuidv4(),
       nome: 'Mobile',
       cor: '#ffba05',
     },
     {
+      id: uuidv4(),
       nome: 'Inovação e Gestão',
       cor: '#ff8a29',
     },
@@ -48,14 +56,13 @@ function App() {
     setColaboradores([...colaboradores, colaborador])
   }
 
-  function deletarColaborador () {
-  
-    console.log("deletando colaborador")
+  function deletarColaborador (id) {
+    setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id));
   }
 
-  function mudarCorDoTime (nome, cor) {
+  function mudarCorDoTime (id, cor) {
     setTimes(times.map(time => {
-      if (time.nome === nome) {
+      if (time.id === id) {
         time.cor = cor
       }
       return time;
@@ -68,6 +75,7 @@ function App() {
       <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado = {colaborador => aoNovoColaboradorAdicionado(colaborador)} />
 
       {times.map(time => <Time
+        id={time.id}
         mudarCor={mudarCorDoTime} 
         key={time.nome} 
         nome={time.nome} 
