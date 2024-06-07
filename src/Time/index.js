@@ -21,6 +21,7 @@ import hexToRgba from 'hex-to-rgba'
 
 const Time = ({ nome, id, cor, colaboradores, aoDeletar, mudarCor }) => {
     const css = { backgroundColor: hexToRgba(cor, '0.6')};
+    
   
     return (
       colaboradores.length > 0 && (

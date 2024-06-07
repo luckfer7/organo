@@ -53,7 +53,8 @@ function App() {
 
   const [colaboradores, setColaboradores] = useState([])
   const aoNovoColaboradorAdicionado = (colaborador) => {
-    setColaboradores([...colaboradores, colaborador])
+    const novoColaborador = {...colaborador, id: uuidv4()}
+    setColaboradores([...colaboradores, novoColaborador])
   }
 
   function deletarColaborador (id) {
